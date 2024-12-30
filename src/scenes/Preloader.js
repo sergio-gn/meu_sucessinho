@@ -33,8 +33,9 @@ export class Preloader extends Scene
         this.load.setPath('Assets Sergio');
 
         this.load.image('background', 'casas/background-1.png');
-        this.load.image('logo', 'cc-logo.png');
-        this.load.atlas('coin', 'coin.png', 'coin.json');
+        this.load.image('logo', 'logo sucessinho.png');
+        this.load.image('confirmButton', 'confirm.png');
+
 
         this.load.image('maleButtonImage', 'protagonistas/feminino/vestimenta_1.png');
         this.load.image('femaleButtonImage', 'protagonistas/masculino/vestimenta_1.png');
