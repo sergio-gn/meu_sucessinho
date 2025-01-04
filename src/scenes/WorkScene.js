@@ -4,25 +4,31 @@ export class WorkScene extends Scene {
     constructor() {
         super('WorkScene');
     }
-
+    init(data) {
+        // Retrieve the SalarySystem instance from scene data
+        this.salarySystem = data.salarySystem || new SalarySystem();
+    }
     preload() {
-        this.load.setPath('Assets Sergio');
+        this.load.setPath('Assets');
     }
 
     create() {
         this.add.image(1920, 1080, 'background');
 
         // Create buttons for WorkScene
-        this.createButton('Work Task 1', 960, 400, () => {
-            console.log('Work Task 1 clicked');
+        this.createButton('Job Tier 2', 960, 400, () => {
+            this.salarySystem.setSalaryTier(2); // Call the method on the salarySystem instance
+            console.log(`New Tier: 2, Earnings: $${this.salarySystem.getEarnings()}`);
         });
 
-        this.createButton('Work Task 2', 960, 500, () => {
-            console.log('Work Task 2 clicked');
+        this.createButton('Job Tier 3', 960, 500, () => {
+            this.salarySystem.setSalaryTier(3); // Call the method on the salarySystem instance
+            console.log(`New Tier: 3, Earnings: $${this.salarySystem.getEarnings()}`);
         });
 
-        this.createButton('Work Task 3', 960, 600, () => {
-            console.log('Work Task 3 clicked');
+        this.createButton('Job Tier 4', 960, 600, () => {
+            this.salarySystem.setSalaryTier(4); // Call the method on the salarySystem instance
+            console.log(`New Tier: 4, Earnings: $${this.salarySystem.getEarnings()}`);
         });
 
         // Exit Button

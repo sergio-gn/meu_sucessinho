@@ -1,12 +1,21 @@
-export default class SalarySystem {
+export class SalarySystem {
+    static instance;
+
     constructor() {
+        if (SalarySystem.instance) {
+            return SalarySystem.instance;
+        }
+
         this.salaryRates = {
-            1: 25, // Salary tier 1: $25/hour
-            2: 35, // Salary tier 2: $35/hour
-            // Add more tiers as needed
+            1: 25,
+            2: 35,
+            3: 45,
+            4: 55,
         };
-        this.playerSalaryTier = 1; // Default salary tier
-        this.totalEarnings = 0; // Accumulated earnings
+        this.playerSalaryTier = 1;
+        this.totalEarnings = 0;
+
+        SalarySystem.instance = this;
     }
 
     update(hoursPassed) {
@@ -22,5 +31,10 @@ export default class SalarySystem {
 
     getEarnings() {
         return this.totalEarnings.toFixed(2);
+    }
+
+    debug() {
+        console.log(`Current Salary Tier: ${this.playerSalaryTier}`);
+        console.log(`Current Earnings: $${this.getEarnings()}`);
     }
 }

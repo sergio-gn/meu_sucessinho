@@ -1,7 +1,14 @@
-export default class TimeSystem {
+export class TimeSystem {
+    static instance;
+
     constructor(startDate = new Date()) {
+        if (TimeSystem.instance) {
+            return TimeSystem.instance;
+        }
+
         this.currentDate = new Date(startDate);
         this.elapsedTime = 0; // In real seconds
+        TimeSystem.instance = this;
     }
 
     update(delta) {

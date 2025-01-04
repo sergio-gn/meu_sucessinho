@@ -6,7 +6,7 @@ export class BicosScene extends Scene {
     }
 
     preload() {
-        this.load.setPath('Assets Sergio');
+        this.load.setPath('Assets');
     }
 
     create() {
